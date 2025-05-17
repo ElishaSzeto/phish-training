@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Loading...</title>
-  <meta http-equiv="refresh" content="2;url=#warning" />
+  <title>Connecting...</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -12,41 +11,32 @@
       padding: 50px;
       color: #000;
     }
-    #warning {
-      display: none;
-    }
-    body.clicked #warning {
-      display: block;
-    }
     .box {
       background-color: #ffeaea;
       padding: 30px;
       border-radius: 10px;
       margin-top: 50px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .hidden {
+      display: none;
     }
   </style>
   <script>
     window.onload = () => {
       setTimeout(() => {
-        document.body.className = 'clicked';
-        window.scrollTo(0, document.body.scrollHeight);
-      }, 2000);
+        document.getElementById("connecting").style.display = "none";
+        document.getElementById("warning").classList.remove("hidden");
+      }, 2000); // Delay 2 seconds to simulate loading
     };
   </script>
 </head>
 <body>
-  <p>Connecting to resource...</p>
+  <p id="connecting">Connecting to resource...</p>
 
-  <div id="warning" class="box">
-    <h2>⚠️ This was a simulated phishing test.</h2>
-    <p>By clicking the link, you just demonstrated what could happen during a real attack:</p>
-    <ul>
-      <li>🔒 Your credentials could have been stolen</li>
-      <li>💻 Malware could be installed on your system</li>
-      <li>📡 Your device could be monitored</li>
-      <li>💸 Financial fraud could result from this</li>
-    </ul>
-    <p><strong>Always inspect links, sender addresses, and the context before clicking!</strong></p>
-  </div>
-</body>
-</html>
+  <div id="warning" class="box hidden">
+    <h2>⚠️ You clicked a simulated phishing link</h2>
+    <p>This was only a training example — but in
