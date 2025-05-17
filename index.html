@@ -2,41 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Phishing Simulation</title>
+  <title>Loading...</title>
+  <meta http-equiv="refresh" content="2;url=#warning" />
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff3f3;
-      color: #000;
-      text-align: center;
+      background-color: #fff;
+      margin: 0;
       padding: 50px;
+      color: #000;
     }
-    .warning {
-      font-size: 2em;
-      color: red;
-      margin-bottom: 20px;
+    #warning {
+      display: none;
     }
-    .details {
-      max-width: 600px;
-      margin: auto;
+    body.clicked #warning {
+      display: block;
+    }
+    .box {
       background-color: #ffeaea;
-      padding: 20px;
+      padding: 30px;
       border-radius: 10px;
+      margin-top: 50px;
     }
   </style>
+  <script>
+    window.onload = () => {
+      setTimeout(() => {
+        document.body.className = 'clicked';
+        window.scrollTo(0, document.body.scrollHeight);
+      }, 2000);
+    };
+  </script>
 </head>
 <body>
-  <div class="warning">⚠️ You Clicked on a Suspicious Link!</div>
-  <div class="details">
-    <p>This was a simulation. But if this had been real, clicking that link could have led to:</p>
-    <ul style="text-align:left;">
-      <li>🔒 Theft of your login credentials or personal data</li>
-      <li>🛠️ Malware installation on your device</li>
-      <li>📡 Unauthorized access to your company network</li>
-      <li>💸 Financial loss or fraud</li>
+  <p>Connecting to resource...</p>
+
+  <div id="warning" class="box">
+    <h2>⚠️ This was a simulated phishing test.</h2>
+    <p>By clicking the link, you just demonstrated what could happen during a real attack:</p>
+    <ul>
+      <li>🔒 Your credentials could have been stolen</li>
+      <li>💻 Malware could be installed on your system</li>
+      <li>📡 Your device could be monitored</li>
+      <li>💸 Financial fraud could result from this</li>
     </ul>
-    <p><strong>Always check the sender, URL, and context before clicking!</strong></p>
+    <p><strong>Always inspect links, sender addresses, and the context before clicking!</strong></p>
   </div>
 </body>
 </html>
