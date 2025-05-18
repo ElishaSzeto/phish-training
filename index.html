@@ -3,50 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <title>Connecting...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
       margin: 0;
-      padding: 50px;
-      color: #000;
+      padding: 0;
     }
-    .box {
-      background-color: #ffeaea;
+    .container {
+      max-width: 800px;
+      margin: 100px auto;
       padding: 30px;
-      border-radius: 10px;
-      margin-top: 50px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .hidden {
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       display: none;
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    .loading {
+      text-align: center;
+      padding: 100px;
+      font-size: 1.2rem;
+      color: #777;
+    }
+    h1 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .icon {
+      margin-right: 10px;
+    }
+    .footer {
+      margin-top: 30px;
+      font-size: 0.95rem;
+      color: #555;
+      border-top: 1px solid #eee;
+      padding-top: 20px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
-  <script>
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById("connecting").style.display = "none";
-        document.getElementById("warning").classList.remove("hidden");
-      }, 2000); // Simulate loading delay
-    };
-  </script>
 </head>
 <body>
-  <p id="connecting">Connecting to resource...</p>
 
-  <div id="warning" class="box hidden">
-    <h2>⚠️ You clicked a simulated phishing link</h2>
-    <p>This was only a training example — but in a real attack, you could have:</p>
-    <ul>
-      <li>🔒 Given away your username and password</li>
-      <li>💻 Installed malware or ransomware</li>
-      <li>📡 Exposed company systems or sensitive data</li>
-      <li>💸 Triggered data breaches or financial loss</li>
-    </ul>
-    <p><strong>Think before you click:</strong> Always verify links, inspect the sender's address, and be cautious of urgency or strange requests.</p>
+  <div class="loading" id="loading">
+    Connecting to secure resource... Please wait.
   </div>
+
+  <div class="container" id="phish-warning">
+    <h1>⚠️ You Clicked a Simulated Phishing Link</h1>
+    <p>This was a controlled test. In a real-world scenario, clicking this kind of link could result in:</p>
+    <ul>
+      <li><span class="icon">🔓</span> Stolen usernames, passwords, or sensitive data</li>
+      <li><span class="icon">💣</span> Installation of malware or ransomware on your system</li>
+      <li><span class="icon">📡</span> Unauthorized access to your organization's network</li>
+      <li><span class="icon">💸</span> Financial loss or reputational damage</li>
+    </ul>
+    <div class="footer">
+      <strong>Tip:</strong> Always hover over links, verify the sender’s email, and avoid clicking anything unexpected or out of context.<br><br>
+      <em>This was part of a security awareness training exercise.</em>
+    </div>
+  </div>
+
+  <script>
+    // Delay to simulate loading
+    setTimeout(() => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('phish-warning').style.display = 'block';
+    }, 2000);
+  </script>
 </body>
 </html>
